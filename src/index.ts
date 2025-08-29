@@ -26,9 +26,8 @@ app.use('*', async (c, next) => {
 
 // --- CORS: izinkan FE dev origins umum ---
 const allowed = new Set<string>([
-  ENV.APP_URL,                 // ex: "http://localhost:5173"
-  'http://localhost:5173',
-  'http://127.0.0.1:5173',
+  ENV.APP_URL,         
+  'https://minimart-frontend.vercel.app'
 ])
 
 app.use('/api/*', cors({
