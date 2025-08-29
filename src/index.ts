@@ -55,8 +55,13 @@ app.route('/api/checkout', checkoutRoutes)
 app.route('/api/webhooks', webhookRoutes)
 // app.post('/api/checkout/session', (c) => c.json({ ok: true, from: 'index.ts' }))
 
-// Bun.serve otomatis ketika default export { fetch, port }
+const PORT = Number(process.env.PORT || ENV.PORT || 3001)
+
 export default {
-  port: ENV.PORT,
+  port: PORT,
   fetch: app.fetch,
+  hostname: '0.0.0.0',
 }
+
+// log start (Bun cetak juga, tapi kita tambah info)
+console.log(`[START] Listening on :${PORT} (hostname=0.0.0.0)`)
